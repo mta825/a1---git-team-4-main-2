@@ -3,25 +3,25 @@ import java.util.ArrayList;
 public class Player {
     ArrayList<Hand> hands;
     ArrayList<Deck> decks;
-    public addHand(Hand newHand) {
+    public void addHand(Hand newHand) {
         hands.add(newHand);
     }
-    public addDeck(Deck newDeck) {
+    public void addDeck(Deck newDeck) {
         decks.add(newDeck);
     }
-    public printCards() {
+    public void printCards() {
         System.out.println("Hands");
-        for (int i=0; i<hands.length(); i++) {
-            ArrayList<Card> cards = hands[i].getCards(this);
-            for (int j=0; j<cards.length(); j++) {
-                System.out.printf("Hand %d %d of %d",i,cards[j].suit,cards[j].value);
+        for (int i=0; i<hands.size(); i++) {
+            ArrayList<Card> cards = hands.get(i).getCards();
+            for (int j=0; j<cards.size(); j++) {
+                System.out.printf("Hand %d %d of %d",i,cards.get(j).getSuit(),cards.get(j).getValue());
             }
         }
         System.out.println("Decks");
-        for (int i=0; i<decks.length(); i++) {
-            ArrayList<Card> cards = decks[i].getCards(this);
-            for (int j=0; j<cards.length(); j++) {
-                System.out.printf("Deck %d %d of %d",i,cards[j].suit,cards[j].value);
+        for (int i=0; i<decks.size(); i++) {
+            ArrayList<Card> cards = decks.get(i).getCards();
+            for (int j=0; j<cards.size(); j++) {
+                System.out.printf("Deck %d %d of %d",i,cards.get(j).getSuit(),cards.get(j).getValue());
             }
         }
     }
